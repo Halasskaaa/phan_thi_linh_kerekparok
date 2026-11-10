@@ -19,8 +19,8 @@ export default function Statisztika(props:KerekparProps) {
     <div>
         <h1>Statisztikai adatok</h1>
         <p>Kerékpárok száma: {props.db}</p>
-        <p>Legolcsóbb kerékpár bérleti díja: {props.db}</p>
-        <p>Legdrágább kerékpár bérleti díja: {props.db}</p>
+        <p>Legolcsóbb kerékpár bérleti díja: {props.legolcsobb}</p>
+        <p>Legdrágább kerékpár bérleti díja: {props.legdragabb}</p>
     </div>
     </>
 
