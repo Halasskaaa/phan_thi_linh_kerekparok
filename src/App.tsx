@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Statisztika from './components.tsx/KerekparLista'
+import Kartya from './components.tsx/Kerekpar';
 
 function App() {
   
@@ -24,6 +25,8 @@ function App() {
         legolcsobb={cheapest}
         legdragabb={expst}
       />
+
+
 
     </div>
     </>
