@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 type KerekparProps = {
     db: number;
     legolcsobb: number;
@@ -8,28 +6,13 @@ type KerekparProps = {
 
 export default function Statisztika(props:KerekparProps) {
 
-    const [data, setData] = useState()
-    useEffect(() => {
-        fetch('./kerekparok.json')
-        .then(reserve => reserve.json())
-        .then(data => setData(data))
-    }, []);
-
     return <>
     <div>
         <h1>Statisztikai adatok</h1>
-        <p>Kerékpárok száma: {props.db}</p>
-        <p>Legolcsóbb kerékpár bérleti díja: {props.legolcsobb}</p>
-        <p>Legdrágább kerékpár bérleti díja: {props.legdragabb}</p>
+        <h2>Kerékpárok száma: {props.db}</h2>
+        <h2>Legolcsóbb kerékpár bérleti díja: {props.legolcsobb}</h2>
+        <h2>Legdrágább kerékpár bérleti díja: {props.legdragabb}</h2>
     </div>
     </>
 
 }
-
-
-
-
-
-
-
-
