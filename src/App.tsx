@@ -31,6 +31,7 @@ function App() {
           nev={item.nev}
           tipus={item.tipus}
           napiDij={item.napiDij}
+          szin={item.szin}
           />
         ))}
       </div>
