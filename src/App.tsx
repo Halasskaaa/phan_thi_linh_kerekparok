@@ -1,36 +1,41 @@
-import { useEffect, useState } from 'react'
-import Statisztika from './components.tsx/KerekparLista'
-import Kartya from './components.tsx/Kerekpar';
+import { useEffect, useState } from "react";
+import Statisztika from "./components.tsx/KerekparLista";
+import Kartya from "./components.tsx/Kerekpar";
+import type { KerekparTipus } from "./type/tipus";
 
 function App() {
-  
-    const [kerekpar, setKerekpar] = useState([])
+  const [kerekpar, setKerekpar] = useState<KerekparTipus[]>([]);
 
-    useEffect(() => {
-        fetch('./kerekparok.json')
-        .then(response => response.json())
-        .then(data => setKerekpar(data))
-    }, []);
+  useEffect(() => {
+    fetch("./kerekparok.json")
+      .then((response) => response.json())
+      .then((data) => setKerekpar(data));
+  }, []);
 
-    const count = kerekpar.length;
-    const cheapest = Math.min()
-    const expst = Math.max()
-
+  const arak = kerekpar.map((item) => item.napiDij);
+  const cheapest = Math.min(...arak);
+  const expst = Math.max(...arak);
 
   return (
     <>
-    <div className="container">
-      <Statisztika
-        db={count}
-        legolcsobb={cheapest}
-        legdragabb={expst}
-      />
+      <div className="container">
+        <Statisztika
+          db={kerekpar.length}
+          legolcsobb={cheapest}
+          legdragabb={expst}
+        />
 
-
-
-    </div>
+        {kerekpar.map((item) => (
+          <Kartya 
+          key={item.id} 
+          nev={item.nev}
+          tipus={item.tipus}
+          napiDij={item.napiDij}
+          />
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
